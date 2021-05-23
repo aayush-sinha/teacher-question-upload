@@ -17,7 +17,7 @@ mongoose
   )
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
-
+//multer configuration
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'uploads')
@@ -44,6 +44,7 @@ app.post('/upload', upload.array('avatar'), (req, res) => {
 });
 app.get('/',(req,res)=>
 res.render("index"))
+//to download file
 app.get('/c/:id', (req, res) => res.download('uploads/'+req.params.id))
 
 
